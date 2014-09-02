@@ -18,7 +18,7 @@
                     <div class="col-md-2">{{item.name}}</div>
                     <div class="col-md-2">{{item.unit}}</div>
                     <div class="col-md-2">{{item.price}}</div>
-                    <div class="col-md-3"><button type="button" class="btn btn-danger btn-xs" id="{{item.name}}" value="0">Add to Cart</button></div>
+                    <div class="col-md-3"><button type="button" class="btn btn-danger btn-xs" id="{{item.name}}" ng-click="click($event.target)" value="0">Add to Cart</button></div>
                 </div>
             </li>
         </ul>

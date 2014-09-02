@@ -1,0 +1,32 @@
+[
+    {
+        "type": "fruit",
+        "name": "apple",
+        "unit": "斤",
+        "price": "5.50元"
+    },
+    {
+        "type": "fruit",
+        "name": "leechee",
+        "unit": "斤",
+        "price": "15.00元"
+    },
+    {
+        "type": "food",
+        "name": "sprite",
+        "unit": "瓶",
+        "price": "3.00元"
+    },
+    {
+        "type": "food",
+        "name": "coca-cola",
+        "unit": "瓶",
+        "price": "3.00元"
+    },
+    {
+        "type": "livingGoods",
+        "name": "battery",
+        "unit": "个",
+        "price": "2.00元"
+    }
+]
