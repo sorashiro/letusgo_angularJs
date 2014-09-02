@@ -10,15 +10,15 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
             var itemNumber = getItem($scope.items[i].name);
             if(itemNumber){
                 var itemType = $scope.items[i].type;
-                if(itemType == 'livingGoods'){
+                if(itemType === 'livingGoods'){
                     $scope.items[i].quantity = itemNumber;
                     livingGoods.push($scope.items[i]);
                 }
-                if(itemType == 'food'){
+                if(itemType === 'food'){
                     $scope.items[i].quantity = itemNumber;
                     food.push($scope.items[i]);
                 }
-                if(itemType == 'fruit'){
+                if(itemType === 'fruit'){
                     $scope.items[i].quantity = itemNumber;
                     fruit.push($scope.items[i]);
                 }
@@ -27,6 +27,7 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
         $scope.livingGoods = livingGoods;
         $scope.foods = food;
         $scope.fruits = fruit;
+        $scope.url = '#/pay';
     });
 
 });

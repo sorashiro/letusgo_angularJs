@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name letusgoAngularJsApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the letusgoAngularJsApp
- */
 angular.module('letusgoAngularJsApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
@@ -14,4 +7,5 @@ angular.module('letusgoAngularJsApp')
       'AngularJS',
       'Karma'
     ];
+
   });
