@@ -16,6 +16,14 @@
                         <div class="col-md-3">小计</div>
                     </div>
                 </li>
+                <li class="list-group-item" ng-repeat="livingGood in livingGoods">
+                    <div class="row panel-title">
+                        <div class="col-md-3">{{livingGood.name}}</div>
+                        <div class="col-md-3">{{livingGood.price}}</div>
+                        <div class="col-md-3">{{livingGood.quantity}}</div>
+                        <div class="col-md-3">{{(livingGood.price * livingGood.quantity).toFixed(2)}}</div>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="panel panel-default">
@@ -29,6 +37,14 @@
                         <div class="col-md-3">单价</div>
                         <div class="col-md-3">数量</div>
                         <div class="col-md-3">小计</div>
+                    </div>
+                </li>
+                <li class="list-group-item" ng-repeat="food in foods">
+                    <div class="row panel-title">
+                        <div class="col-md-3">{{food.name}}</div>
+                        <div class="col-md-3">{{food.price}}</div>
+                        <div class="col-md-3">{{food.quantity}}</div>
+                        <div class="col-md-3">{{(food.price * food.quantity).toFixed(2)}}</div>
                     </div>
                 </li>
             </ul>
@@ -46,10 +62,19 @@
                         <div class="col-md-3">小计</div>
                     </div>
                 </li>
+                <li class="list-group-item" ng-repeat="fruit in fruits">
+                    <div class="row panel-title">
+                        <div class="col-md-3">{{fruit.name}}</div>
+                        <div class="col-md-3">{{fruit.price}}</div>
+                        <div class="col-md-3">{{fruit.quantity}}</div>
+                        <div class="col-md-3">{{(fruit.price * fruit.quantity).toFixed(2)}}</div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="text-center">
-        <a class="btn btn-primary btn-lg" role="button" href="pay.html" id="pay">小二算账！</a>
+        <a class="btn btn-primary btn-lg" role="button" ng-href="#/pay" id="pay">小二算账！</a>
     </div>
+</div>

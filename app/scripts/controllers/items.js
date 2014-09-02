@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name letusgoAngularJsApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the letusgoAngularJsApp
- */
 angular.module('letusgoAngularJsApp')
    .controller('ItemsCtrl', function ($scope) {
      $scope.awesomeThings = [
