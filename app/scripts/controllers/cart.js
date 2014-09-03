@@ -28,6 +28,32 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
         $scope.foods = food;
         $scope.fruits = fruit;
         $scope.url = '#/pay';
+
+        $scope.plus = function(target){
+            clickSum();
+            var name = target.getAttribute('name');
+            var sum = getItem(name)+1;
+            addItem(name, sum);
+            for(var i = 0; i < $scope.items.length; i++){
+                if($scope.items[i].name === name){
+                    $scope.items[i].quantity += 1;
+                }
+            }
+        };
+        $scope.reduce = function(target){
+            clickdownSum();
+            var item = [];
+            var name = target.getAttribute('name');
+            var sum = getItem(name)-1;
+            addItem(name, sum);
+            for(var i =0; i < $scope.items.length; i++){
+                if($scope.items[i].name === name){
+                    $scope.items[i].quantity -= 1;
+                }
+            }
+        }
+
     });
+
 
 });

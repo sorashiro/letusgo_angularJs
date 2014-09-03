@@ -20,7 +20,11 @@
                     <div class="row panel-title">
                         <div class="col-md-3">{{livingGood.name}}</div>
                         <div class="col-md-3">{{livingGood.price}}</div>
-                        <div class="col-md-3">{{livingGood.quantity}}</div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="reduce($event.target)">-</button>
+                            <button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{livingGoods.quantity}}</button>
+                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="plus($event.target)">+</button>
+                        </div>
                         <div class="col-md-3">{{(livingGood.price * livingGood.quantity).toFixed(2)}}</div>
                     </div>
                 </li>
@@ -43,7 +47,11 @@
                     <div class="row panel-title">
                         <div class="col-md-3">{{food.name}}</div>
                         <div class="col-md-3">{{food.price}}</div>
-                        <div class="col-md-3">{{food.quantity}}</div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="reduce($event.target)">-</button>
+                            <button type="button" class="btn btn-default btn-sm" disabled="false" name="nummber">{{food.quantity}}</button>
+                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="plus($event.target)">+</button>
+                        </div>
                         <div class="col-md-3">{{(food.price * food.quantity).toFixed(2)}}</div>
                     </div>
                 </li>
@@ -66,7 +74,11 @@
                     <div class="row panel-title">
                         <div class="col-md-3">{{fruit.name}}</div>
                         <div class="col-md-3">{{fruit.price}}</div>
-                        <div class="col-md-3">{{fruit.quantity}}</div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm" name="{{fruit.name}}" ng-click="reduce($event.target)">-</button>
+                            <button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{fruit.quantity}}</button>
+                            <button type="button" class="btn btn-primary btn-sm" name="{{fruit.name}}" ng-click="plus($event.target)">+</button>
+                        </div>
                         <div class="col-md-3">{{(fruit.price * fruit.quantity).toFixed(2)}}</div>
                     </div>
                 </li>

@@ -7,5 +7,10 @@ angular.module('letusgoAngularJsApp')
       'AngularJS',
       'Karma'
     ];
-
+        if (localStorage.clickcount){
+            $scope.count = localStorage.clickcount;
+        }
+        else{
+            $scope.count = 0;
+        }
   });
