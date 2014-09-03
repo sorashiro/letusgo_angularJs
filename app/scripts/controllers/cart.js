@@ -42,7 +42,9 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
         };
         $scope.reduce = function(target){
             clickdownSum();
-            var item = [];
+            var food = [];
+            var fruit = [];
+            var livingGoods = [];
             var name = target.getAttribute('name');
             var sum = getItem(name)-1;
             addItem(name, sum);
@@ -50,7 +52,26 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
                 if($scope.items[i].name === name){
                     $scope.items[i].quantity -= 1;
                 }
+                var itemNumber = getItem($scope.items[i].name);
+                if(itemNumber){
+                    var itemType = $scope.items[i].type;
+                    if(itemType === 'livingGoods'){
+                        $scope.items[i].quantity = itemNumber;
+                        livingGoods.push($scope.items[i]);
+                    }
+                    if(itemType === 'food'){
+                        $scope.items[i].quantity = itemNumber;
+                        food.push($scope.items[i]);
+                    }
+                    if(itemType === 'fruit'){
+                        $scope.items[i].quantity = itemNumber;
+                        fruit.push($scope.items[i]);
+                    }
+                }
             }
+            $scope.livingGoods = livingGoods;
+            $scope.foods = food;
+            $scope.fruits = fruit;
         }
 
     });
