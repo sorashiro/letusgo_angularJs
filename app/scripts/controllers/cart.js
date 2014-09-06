@@ -6,8 +6,12 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
         var food = [];
         var fruit = [];
         var livingGoods = [];
+      var type = [];
         for(var i = 0; i < data.length; i++){
-            var itemNumber = getItem($scope.items[i].name);
+          type.push($scope.items[i]);
+
+
+          var itemNumber = getItem($scope.items[i].name);
             if(itemNumber){
                 var itemType = $scope.items[i].type;
                 if(itemType === 'livingGoods'){
@@ -24,6 +28,7 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, $h
                 }
             }
         }
+      $scope.types = type;
         $scope.livingGoods = livingGoods;
         $scope.foods = food;
         $scope.fruits = fruit;
