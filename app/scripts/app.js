@@ -41,7 +41,11 @@ angular
       })
       .when('/categoryManager', {
         templateUrl: 'views/categoryManager.html',
-        controller: 'ItemsCtrl'
+        controller: 'CategoryManagerCtrl'
+      })
+      .when('/goodsInformationManager', {
+        templateUrl: 'views/goodsInformationManager.html',
+        controller: 'GoodsInformationManagerCtrl'
       })
       .otherwise({
         redirectTo: '/'
