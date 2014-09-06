@@ -26,14 +26,25 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
   };
 
   this.count = function(){
-    var count = localStorageService.get(clickCount);
-    localStorageService.set('clickCount', count);
+    var count;
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount) + 1;
+    }
+    else {
+      localStorage.clickcount = 1;
+    }
+    count = Number(localStorage.clickcount);
     return count;
+
+    localStorageService.set('clickCount', count);
 
   };
 
-  this.addTocart = function(item){
-
+  this.addToCart = function(item){
+    var id, num;
+    id = item.name;
+    num = ++item.quantity;
+    localStorageService.set(id, num);
   };
 
   this.add = function(key, value){
