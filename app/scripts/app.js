@@ -39,6 +39,10 @@ angular
         templateUrl: 'views/pay.html',
         controller: 'PayCtrl'
       })
+      .when('/categoryManager', {
+        templateUrl: 'views/categoryManager.html',
+        controller: 'ItemsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
