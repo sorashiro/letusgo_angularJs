@@ -6,19 +6,19 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
 
     var itemsList = [
       {
-        "category": "fruit", "name": "apple", "unit": "斤", "price": "5.50", "quantity": "0"
+        "category": "fruit", "name": "apple", "unit": "斤", "price": "5.50"
       },
       {
-        "category": "fruit", "name": "leechee", "unit": "斤", "price": "15.00", "quantity": "0"
+        "category": "fruit", "name": "leechee", "unit": "斤", "price": "15.00"
       },
       {
-        "category": "food", "name": "sprite", "unit": "瓶", "price": "3.00", "quantity": "0"
+        "category": "food", "name": "sprite", "unit": "瓶", "price": "3.00"
       },
       {
-        "category": "food", "name": "coca-cola", "unit": "瓶", "price": "3.00", "quantity": "0"
+        "category": "food", "name": "coca-cola", "unit": "瓶", "price": "3.00"
       },
       {
-        "category": "livingGoods", "name": "battery", "unit": "个", "price": "2.00", "quantity": "0"
+        "category": "livingGoods", "name": "battery", "unit": "个", "price": "2.00"
       }
     ];
     localStorageService.set('itemsList', itemsList);
@@ -34,17 +34,35 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
       localStorage.clickcount = 1;
     }
     count = Number(localStorage.clickcount);
+    localStorageService.set('clickcount', count);
+
     return count;
 
-    localStorageService.set('clickCount', count);
 
   };
 
-  this.addToCart = function(item){
-    var id, num;
-    id = item.name;
-    num = ++item.quantity;
-    localStorageService.set(id, num);
+  this.addToCart = function(cartList, names, item){
+    var name, num, category;
+    var cart;
+    name = item.name;
+    num = 1;
+    category = item.category;
+    cart = {"category": category, "name": name, "num": num};
+    var has = names.indexOf(name);
+    if(has === -1){
+      cartList.push(cart);
+      names.push(name);
+    }
+    else{
+      for (var i = 0; i < cartList.length; i++){
+        if (cartList[i].name === name){
+          cartList[i].num++;
+        }
+      }
+    }
+
+
+      localStorageService.set('cartList', cartList);
   };
 
   this.add = function(key, value){
