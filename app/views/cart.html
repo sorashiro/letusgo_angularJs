@@ -3,9 +3,9 @@
         <h4>购物车</h4>
     </div>
     <div class="panel-body text-center" id="cart-item">
-        <div class="panel panel-default" ng-repeat="type in types">
+        <div class="panel panel-default" ng-repeat="cartList in cartLists">
             <div class="panel-heading text-center">
-                <h4>{{type.type}}</h4>
+                <h4>{{cartList.item.category}}</h4>
             </div>
             <ul class="list-group text-center">
                 <li class="list-group-item" id="livingGoods">
