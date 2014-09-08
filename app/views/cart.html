@@ -3,9 +3,9 @@
         <h4>购物车</h4>
     </div>
     <div class="panel-body text-center" id="cart-item">
-        <div class="panel panel-default" ng-repeat="cartList in cartLists">
+        <div class="panel panel-default" ng-repeat="item in categorys">
             <div class="panel-heading text-center">
-                <h4>{{cartList.item.category}}</h4>
+                <h4>{{item}}</h4>
             </div>
             <ul class="list-group text-center">
                 <li class="list-group-item" id="livingGoods">
@@ -16,16 +16,16 @@
                         <div class="col-md-3">小计</div>
                     </div>
                 </li>
-                <li class="list-group-item" ng-repeat="livingGood in livingGoods">
+                <li class="list-group-item" ng-repeat="cartList in cartLists">
                     <div class="row panel-title">
-                        <div class="col-md-3">{{livingGood.name}}</div>
-                        <div class="col-md-3">{{livingGood.price}}</div>
+                        <div class="col-md-3">{{cartList.item.name}}</div>
+                        <div class="col-md-3">{{cartList.item.price}}</div>
                         <div class="col-md-3">
                             <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="reduce($event.target)">-</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{livingGoods.quantity}}</button>
+                            <button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{cartList.num}}</button>
                             <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="plus($event.target)">+</button>
                         </div>
-                        <div class="col-md-3">{{(livingGood.price * livingGood.quantity).toFixed(2)}}</div>
+                        <div class="col-md-3">{{(cartList.item.price * cartList.num).toFixed(2)}}</div>
                     </div>
                 </li>
             </ul>
