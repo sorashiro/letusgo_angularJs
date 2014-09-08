@@ -5,6 +5,6 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, ca
   var categorys = [];
   var cartLists = [];
 
-  $scope.cartLists = cartItemService.cartList(cartLists);
-//  $scope.categorys = cartItemService.category(categorys);
+//  $scope.cartLists = cartItemService.cartList(cartLists);
+  $scope.categorys = cartItemService.category(categorys, cartLists);
 });
