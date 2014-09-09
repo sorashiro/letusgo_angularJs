@@ -45,5 +45,18 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
     localStorageService.set('cartList', cartLists);
   };
 
+  this.plusNumber = function(cartItem){
+    var cartLists;
+    cartLists = localStorageService.get('cartList');
+    var name;
+    name = cartItem.name;
 
+    for (var i = 0; i < cartLists.length; i++){
+      if(name === cartLists[i].item.name)
+      {
+        cartLists[i].num++;
+      }
+    }
+    localStorageService.set('cartList', cartLists);
+  }
 });
