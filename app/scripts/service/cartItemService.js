@@ -18,14 +18,22 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
     }
     for (var k = 0; k < categorys.length; k++){
       var item = [];
+      var category = [];
       for (var j = 0; j < cartLists.length; j++){
         if (categorys[k] === cartLists[j].item.category){
           item.push(cartLists[j]);
         }
       }
-      localStorageService.set(categorys[k], item);
+      category = [{'category': categorys[k], 'item': item}];
+      localStorageService.set(categorys[k], category);
     }
+    return categorys;
+  };
+
+  this.reduceNumber = function(cartLists){
+    var name, num;
+    name = cartList.item.name;
+    num = cartList.num;
 
   }
-
 });
