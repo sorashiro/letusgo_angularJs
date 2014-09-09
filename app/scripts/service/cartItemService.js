@@ -21,7 +21,7 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
       var category = {};
       for (var j = 0; j < cartLists.length; j++){
         if (categorys[k] === cartLists[j].item.category){
-          item.push(cartLists[j].item);
+          item.push(cartLists[j]);
         }
       }
       category = {'category': categorys[k], 'item': item};

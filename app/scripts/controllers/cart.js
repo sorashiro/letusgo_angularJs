@@ -9,7 +9,4 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, ca
   $scope.cartLists = cartItemService.cartList(cartLists);
   $scope.cartItems = cartItemService.category(categorys, cartLists);
 
-
-
-
 });
