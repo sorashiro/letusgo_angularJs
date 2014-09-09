@@ -40,6 +40,9 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
     for (var i = 0; i < cartLists.length; i++){
       if(name === cartLists[i].item.name){
         cartLists[i].num--;
+        if (cartLists[i].num === 0){
+          cartLists.splice(i,1);
+        }
       }
     }
     localStorageService.set('cartList', cartLists);
