@@ -21,72 +21,18 @@
                         <div class="col-md-3">{{a.item.name}}</div>
                         <div class="col-md-3">{{a.item.price}}</div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="reduce($event.target)">-</button>
+                            <button type="button" class="btn btn-primary btn-sm" name="{{a.item.name}}" ng-click="reduce(a.item)">-</button>
                             <button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{a.num}}</button>
-                            <button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="plus($event.target)">+</button>
+                            <button type="button" class="btn btn-primary btn-sm" name="{{a.item.name}}" ng-click="plus(a.item)">+</button>
                         </div>
                         <div class="col-md-3">{{(a.item.price * a.num).toFixed(2)}}</div>
                     </div>
                 </li>
             </ul>
         </div>
-        <!--<div class="panel panel-default">-->
-            <!--<div class="panel-heading text-center">-->
-                <!--<h4>food</h4>-->
-            <!--</div>-->
-            <!--<ul class="list-group text-center">-->
-                <!--<li class="list-group-item" id="food">-->
-                    <!--<div class="row panel-title">-->
-                        <!--<div class="col-md-3">名称</div>-->
-                        <!--<div class="col-md-3">单价</div>-->
-                        <!--<div class="col-md-3">数量</div>-->
-                        <!--<div class="col-md-3">小计</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li class="list-group-item" ng-repeat="food in foods">-->
-                    <!--<div class="row panel-title">-->
-                        <!--<div class="col-md-3">{{food.name}}</div>-->
-                        <!--<div class="col-md-3">{{food.price}}</div>-->
-                        <!--<div class="col-md-3">-->
-                            <!--<button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="reduce($event.target)">-</button>-->
-                            <!--<button type="button" class="btn btn-default btn-sm" disabled="false" name="nummber">{{food.quantity}}</button>-->
-                            <!--<button type="button" class="btn btn-primary btn-sm" name="{{item.name}}" ng-click="plus($event.target)">+</button>-->
-                        <!--</div>-->
-                        <!--<div class="col-md-3">{{(food.price * food.quantity).toFixed(2)}}</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-        <!--<div class="panel panel-default">-->
-            <!--<div class="panel-heading text-center">-->
-                <!--<h4>fruits</h4>-->
-            <!--</div>-->
-            <!--<ul class="list-group text-center">-->
-                <!--<li class="list-group-item" id="fruit">-->
-                    <!--<div class="row panel-title">-->
-                        <!--<div class="col-md-3">名称</div>-->
-                        <!--<div class="col-md-3">单价</div>-->
-                        <!--<div class="col-md-3">数量</div>-->
-                        <!--<div class="col-md-3">小计</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li class="list-group-item" ng-repeat="fruit in fruits">-->
-                    <!--<div class="row panel-title">-->
-                        <!--<div class="col-md-3">{{fruit.name}}</div>-->
-                        <!--<div class="col-md-3">{{fruit.price}}</div>-->
-                        <!--<div class="col-md-3">-->
-                            <!--<button type="button" class="btn btn-primary btn-sm" name="{{fruit.name}}" ng-click="reduce($event.target)">-</button>-->
-                            <!--<button type="button" class="btn btn-default btn-sm" disabled="false" name="number">{{fruit.quantity}}</button>-->
-                            <!--<button type="button" class="btn btn-primary btn-sm" name="{{fruit.name}}" ng-click="plus($event.target)">+</button>-->
-                        <!--</div>-->
-                        <!--<div class="col-md-3">{{(fruit.price * fruit.quantity).toFixed(2)}}</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
+      </div>
 
     <div class="text-center">
-        <a class="btn btn-primary btn-lg" role="button" href="{{url}}" id="pay">小二算账！</a>
+        <a class="btn btn-primary btn-lg" role="button" href="#/pay" id="pay">小二算账！</a>
     </div>
 </div>
