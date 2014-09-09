@@ -10,6 +10,7 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
   this.category = function(categorys, cartLists){
     var cartItems = [];
     cartLists = localStorageService.get('cartList');
+
     for (var i = 0; i < cartLists.length; i++){
       category = cartLists[i].item.category;
       if (categorys.indexOf(category) === -1) {
@@ -24,10 +25,12 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
           item.push(cartLists[j]);
         }
       }
-      category = {'category': categorys[k], 'item': item};
-      cartItems.push(category);
-      localStorageService.set('cartItem', cartItems);
-      localStorageService.set(categorys[k], category);
+      if (item.length !== 0) {
+        category = {'category': categorys[k], 'item': item};
+        cartItems.push(category);
+        localStorageService.set('cartItem', cartItems);
+        localStorageService.set(categorys[k], category);
+      }
     }
     return cartItems;
   };
