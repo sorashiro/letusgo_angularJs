@@ -6,7 +6,7 @@
         <p>购物时间：{{date}}</p>
         <p>-------------------------------------------------------</p>
         <p ng-repeat="cartItem in cartItems">
-            名称：{{cartItem.name}}, 数量：{{cartItem.quantity}}, 单价：{{cartItem.price}}, 小计：{{(cartItem.quantity * cartItem.price).toFixed(2)}}
+            名称：{{cartItem.item.name}}, 数量：{{cartItem.num}}, 单价：{{cartItem.item.price}}, 小计：{{(cartItem.num * cartItem.item.price).toFixed(2)}}
         </p>
         <p>总计：{{(total).toFixed(2)}}</p>
     </div>
