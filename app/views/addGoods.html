@@ -7,7 +7,16 @@
   <div class="panel-body text-center" id="cart-item">
       <div class="row panel-title">
         <div class="col-md-2">
-          <input type="text" name="className" class="form-control" placeholder="分类名称" ng-model="categoryName">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              {{categoryName}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation" ng-repeat="category in categorys" ng-click="getName(category)">
+                <a role="menuitem">{{category}}</a></li>
+            </ul>
+          </div>
         </div>
         <div class="col-md-2">
           <input type="text" name="className" class="form-control" placeholder="名称" ng-model="name">
