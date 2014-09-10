@@ -25,6 +25,17 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
     return itemsList;
   };
 
+  this.loadItems = function(){
+    var item = localStorageService.get('itemsList');
+    for (var i = 0; i < item.length; i++){
+      if (!item[i].name){
+        item.splice(i, 1);
+        i--;
+      }
+    }
+    return item;
+  };
+
   this.count = function(){
     var count;
 
