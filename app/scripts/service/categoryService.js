@@ -12,5 +12,17 @@ angular.module('letusgoAngularJsApp').service('categoryService', function(localS
     }
     itemsService.add('categorys', categorys);
     return categorys;
+  };
+
+  this.addCategory = function(category){
+    var items = itemsService.get('itemsList');
+    var categorys = this.loadCategory();
+    var newItem = {};
+
+    newItem = {"category": category};
+    items.push(newItem);
+    categorys.push(category);
+    itemsService.add('itemsList', items);
+    itemsService.add('categorys', categorys);
   }
 });
