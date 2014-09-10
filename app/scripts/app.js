@@ -41,7 +41,7 @@ angular
       })
       .when('/categoryManager', {
         templateUrl: 'views/categoryManager.html',
-        controller: 'CategoryManagerCtrl'
+        controller: 'CategoryCtrl'
       })
       .when('/goodsInformationManager', {
         templateUrl: 'views/goodsInformationManager.html',
