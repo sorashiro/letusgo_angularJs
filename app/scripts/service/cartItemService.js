@@ -64,5 +64,14 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
       }
     }
     localStorageService.set('cartList', cartLists);
+  };
+
+  this.getTotal = function(){
+    var total = 0;
+    var cartLists = localStorageService.get('cartList');
+    for (var i = 0; i < cartLists.length; i++){
+      total += cartLists[i].num * cartLists[i].item.price;
+    }
+    return total;
   }
 });
