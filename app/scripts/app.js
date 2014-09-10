@@ -45,7 +45,7 @@ angular
       })
       .when('/goodsInformationManager', {
         templateUrl: 'views/goodsInformationManager.html',
-        controller: 'GoodsInformationManagerCtrl'
+        controller: 'GoodsInformationCtrl'
       })
       .otherwise({
         redirectTo: '/'
