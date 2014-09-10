@@ -1,5 +1,9 @@
 'use strict';
 
-angular.module('letsugoAngularJsApp').service('goodsInformationService', function(localStorageService, itemsService){
+angular.module('letusgoAngularJsApp').service('goodsInformationService', function(localStorageService, itemsService){
 
+  this.loadGoodsInformations = function(){
+    var items = itemsService.items();
+    return items;
+  }
 });
