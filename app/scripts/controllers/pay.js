@@ -23,3 +23,10 @@ angular.module('letusgoAngularJsApp').controller('PayCtrl', function($scope, $ht
 
     });
 });
+
+angular.module('letusgoAngularJsApp').controller('PayCtrl', function($scope, itemsService, cartItemService) {
+
+  $scope.date = new Date().toLocaleString();
+  $scope.cartItems = itemsService.get('cartList');
+  $scope.total = cartItemService.getTotal();
+});
