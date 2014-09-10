@@ -47,6 +47,10 @@ angular
         templateUrl: 'views/goodsInformationManager.html',
         controller: 'GoodsInformationCtrl'
       })
+      .when('/addCategory', {
+        templateUrl: 'views/addCategory.html',
+        controller: 'CategoryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
