@@ -1,6 +1,18 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function($scope, goodsInformationService, itemsService){
+angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function($scope, categoryService, goodsInformationService, itemsService){
 
-  $scope.items = goodsInformationService.getItem();
+  $scope.item = goodsInformationService.getItem();
+  $scope.categorys = categoryService.loadCategory();
+  $scope.categoryName = goodsInformationService.getCategory();
+  $scope.changeName = function(category){
+    $scope.categoryName = category;
+  };
+
+  $scope.modify = function(){
+    var name = $scope.name;
+    var unit = $scope.unit;
+    var price = $scope.price;
+    goodsInformationService.modify($scope.categoryName, name, unit, price);
+  }
 });
