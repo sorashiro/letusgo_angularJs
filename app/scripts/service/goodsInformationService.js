@@ -5,7 +5,7 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
   this.addGoods = function(category, name, unit, price){
     var items = itemsService.loadItems();
     items.push({"category": category, "name": name, "unit": unit, "price": price});
-    itemsService.add('itemsList', items);
+    itemsService.add('newList', items);
   };
 
   this.remove = function(goodsInformation){
@@ -15,7 +15,7 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
         items.splice(i, 1);
       }
     }
-    itemsService.add('itemsList', items);
+    itemsService.add('newList', items);
   };
 
   this.change = function(goodsInformation){
@@ -40,15 +40,15 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
   };
 
   this.modify = function(category, name, unit, price){
-    var items = itemsService.get('itemsList');
+    var items = itemsService.get('newList');
     var item = this.getItem();
     var newItem = {"category": category, "name": name, "unit": unit, "price": price};
     for (var i = 0; i < items.length; i++){
-      if (item[0].name = items[i].name){
+      if (item[0].name === items[i].name){
         items.splice(i, 1, newItem);
         break;
       }
     }
-    itemsService.add('itemsList', items);
+    itemsService.add('newList', items);
   };
 });
