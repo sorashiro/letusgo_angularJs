@@ -3,19 +3,19 @@
 angular.module('letusgoAngularJsApp').service('goodsInformationService', function(localStorageService, itemsService){
 
   this.addGoods = function(category, name, unit, price){
-    var items = itemsService.loadItems();
+    var items = itemsService.get('itemsList');
     items.push({"category": category, "name": name, "unit": unit, "price": price});
-    itemsService.add('newList', items);
+    itemsService.add('itemsList', items);
   };
 
   this.remove = function(goodsInformation){
-    var items = itemsService.loadItems();
+    var items = itemsService.get('itemsList');
     for (var i = 0; i < items.length; i++){
       if (goodsInformation.name === items[i].name){
         items.splice(i, 1);
       }
     }
-    itemsService.add('newList', items);
+    itemsService.add('itemsList', items);
   };
 
   this.change = function(goodsInformation){
@@ -40,7 +40,7 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
   };
 
   this.modify = function(category, name, unit, price){
-    var items = itemsService.get('newList');
+    var items = itemsService.get('itemsList');
     var item = this.getItem();
     var newItem = {"category": category, "name": name, "unit": unit, "price": price};
     for (var i = 0; i < items.length; i++){
@@ -49,6 +49,6 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
         break;
       }
     }
-    itemsService.add('newList', items);
+    itemsService.add('itemsList', items);
   };
 });
