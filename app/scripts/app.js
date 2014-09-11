@@ -57,7 +57,7 @@ angular
       })
       .when('/modifyCategory', {
         templateUrl: 'views/modifyCategory.html',
-        controller: 'CategoryCtrl'
+        controller: 'ModifyCategoryCtrl'
       })
       .when('/modifyGoodsInformation', {
         templateUrl: 'views/modifyGoodsInformation.html',
