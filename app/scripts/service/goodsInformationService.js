@@ -16,5 +16,21 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
       }
     }
     itemsService.add('itemsList', items);
+  };
+
+  this.getItem = function(){
+    var item = itemsService.get('modifyItem');
+    return item;
+  };
+
+  this.change = function(goodsInformation){
+    var items = itemsService.loadItems();
+    var item = [];
+    for (var i = 0; i < items.length; i++){
+      if (goodsInformation.name === items[i].name){
+        item.push(items[i]);
+      }
+      itemsService.add('modifyItem', item);
+    }
   }
 });
