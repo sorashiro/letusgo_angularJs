@@ -18,19 +18,37 @@ angular.module('letusgoAngularJsApp').service('goodsInformationService', functio
     itemsService.add('itemsList', items);
   };
 
+  this.change = function(goodsInformation){
+    var items = itemsService.loadItems();
+    var item;
+    for (var i = 0; i < items.length; i++){
+      if (goodsInformation.name === items[i].name){
+        item = [items[i]];
+      }
+      itemsService.add('modifyItem', item);
+    }
+  };
+
   this.getItem = function(){
     var item = itemsService.get('modifyItem');
     return item;
   };
 
-  this.change = function(goodsInformation){
-    var items = itemsService.loadItems();
-    var item = [];
+  this.getCategory = function(){
+    var item = this.getItem();
+    return item[0].category;
+  };
+
+  this.modify = function(category, name, unit, price){
+    var items = itemsService.get('itemsList');
+    var item = this.getItem();
+    var newItem = {"category": category, "name": name, "unit": unit, "price": price};
     for (var i = 0; i < items.length; i++){
-      if (goodsInformation.name === items[i].name){
-        item.push(items[i]);
+      if (item[0].name = items[i].name){
+        items.splice(i, 1, newItem);
+        break;
       }
-      itemsService.add('modifyItem', item);
     }
-  }
+    itemsService.add('itemsList', items);
+  };
 });
