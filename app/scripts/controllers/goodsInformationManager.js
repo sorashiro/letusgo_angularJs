@@ -20,5 +20,9 @@ angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', functio
   $scope.remove = function(goodsInformation){
     goodsInformationService.remove(goodsInformation);
     $scope.loadGoodsInformations = itemsService.loadItems();
-  }
+  };
+
+  $scope.change = function(goodsInformation){
+    goodsInformationService.change(goodsInformation);
+  };
 });
