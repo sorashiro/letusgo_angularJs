@@ -29,11 +29,37 @@ angular.module('letusgoAngularJsApp').service('categoryService', function(localS
     var items = itemsService.get('itemsList');
     for (var i = 0; i < items.length; i++){
       if (category === items[i].category){
-        items.splice(i, 1);
-        i--;
+        if(items[i].name){
+          alert("该分类下有商品，不能删除！");
+          break;
+        }
+        else {
+          items.splice(i, 1);
+          i--;
+        }
       }
     }
     itemsService.add('itemsList', items);
-  }
+  };
+
+  this.modify = function(category){
+    var categoryName = category;
+    itemsService.add('modifyCategory', categoryName);
+  };
+
+  this.getName = function(){
+    var category = itemsService.get('modifyCategory');
+    return category;
+  };
+
+  this.modifyCategory = function(category, newName){
+    var items = itemsService.get('itemsList');
+    for (var i = 0; i < items.length; i++){
+      if (category === items[i].category){
+        items[i].category = newName;
+      }
+    }
+    itemsService.add('itemsList', items);
+  };
 
 });
