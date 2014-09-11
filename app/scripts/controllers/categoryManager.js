@@ -14,5 +14,11 @@ angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function($scope
     categoryService.removes(category);
     $scope.categorys = categoryService.loadCategory();
 
+  };
+
+  $scope.change = function(category){
+
+    categoryService.modify(category);
+
   }
 });
