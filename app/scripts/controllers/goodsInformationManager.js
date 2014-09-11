@@ -15,6 +15,7 @@ angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', functio
     var unit = $scope.unit;
     var price = $scope.price;
     goodsInformationService.addGoods($scope.categoryName, name, unit, price);
+    alert('添加成功！');
   };
 
   $scope.remove = function(goodsInformation){
