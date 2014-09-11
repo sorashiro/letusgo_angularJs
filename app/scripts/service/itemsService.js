@@ -62,8 +62,9 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
     name = item.name;
     num = 1;
     cart = {"item": item, "num": num};
+    names = this.get('names') || [];
     var has = names.indexOf(name);
-
+    cartList = this.get('cartList') || [];
     if(has === -1){
       cartList.push(cart);
       names.push(name);
@@ -75,7 +76,8 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
         }
       }
     }
-      localStorageService.set('cartList', cartList);
+      this.add('names', names);
+      this.add('cartList', cartList);
   };
 
   this.add = function(key, value){

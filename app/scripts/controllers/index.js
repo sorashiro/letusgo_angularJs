@@ -3,6 +3,8 @@
 angular.module('letusgoAngularJsApp')
   .controller('IndexCtrl', function ($scope, itemsService) {
 
+    itemsService.items();
+
     $scope.count = itemsService.get('clickcount') || 0;
 
     $scope.$on('_parent_count', function () {
@@ -14,6 +16,7 @@ angular.module('letusgoAngularJsApp')
 
       $scope.count = 0;
     });
+
 
   });
 
