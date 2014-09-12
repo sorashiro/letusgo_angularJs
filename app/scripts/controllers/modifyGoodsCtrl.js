@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function($scope, categoryService, goodsInformationService, itemsService){
+angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function($scope, categoryService, goodsInformationService){
 
   $scope.item = goodsInformationService.getItem();
   $scope.categorys = categoryService.loadCategory();
