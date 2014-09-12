@@ -88,6 +88,8 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
     return localStorageService.get(key);
   };
 
-
+  this.remove = function(key){
+    return localStorageService.remove(key);
+  };
 
 });

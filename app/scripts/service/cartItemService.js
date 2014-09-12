@@ -9,7 +9,7 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
 
   this.category = function(categorys, cartLists){
     var cartItems = [];
-    cartLists = localStorageService.get('cartList');
+    cartLists = localStorageService.get('cartList') || [];
 
     for (var i = 0; i < cartLists.length; i++){
       category = cartLists[i].item.category;
