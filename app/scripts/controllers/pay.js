@@ -9,6 +9,6 @@ angular.module('letusgoAngularJsApp').controller('PayCtrl', function($scope, ite
     itemsService.remove('cartList');
     itemsService.remove('names');
     itemsService.add('clickcount', 0);
-    alert('付款成功，期待您下次光临！')
+    alert('付款成功，期待您下次光临~')
   }
 });
