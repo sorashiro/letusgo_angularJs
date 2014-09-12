@@ -1,13 +1,18 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function($scope, categoryService, localStorageService){
+angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function($scope, categoryService){
 
   $scope.categorys = categoryService.loadCategory();
 
   $scope.addCategory = function(){
     var category = $scope.input;
-    categoryService.addCategory(category);
-    alert('添加成功！');
+    if (category) {
+      categoryService.addCategory(category);
+      alert('添加成功~');
+    }
+    else {
+      alert('请输入分类名称~');
+    }
   };
 
   $scope.removes = function(category){

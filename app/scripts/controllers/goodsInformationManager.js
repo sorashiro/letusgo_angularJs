@@ -14,8 +14,13 @@ angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', functio
     var name = $scope.name;
     var unit = $scope.unit;
     var price = $scope.price;
-    goodsInformationService.addGoods($scope.categoryName, name, unit, price);
-    alert('添加成功！');
+    if (name && unit && price && $scope.categoryName !== "分类名称") {
+      goodsInformationService.addGoods($scope.categoryName, name, unit, price);
+      alert('添加成功~');
+    }
+    else {
+      alert('请选择分类并输入名称、单位、价格～');
+    }
   };
 
   $scope.remove = function(goodsInformation){
