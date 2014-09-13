@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, cartItemService){
+angular.module('letusgoAngularJsApp').controller('CartCtrl', function ($scope, cartItemService) {
 
   var categorys = [];
   var cartLists = [];
@@ -18,15 +18,15 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function($scope, ca
 
   }
 
-  $scope.reduce = function(cartItem){
+  $scope.reduce = function (cartItem) {
 
     cartItemService.reduceNumber(cartItem);
     $scope.cartItems = cartItemService.category(categorys, cartLists);
   };
 
-  $scope.plus = function(cartItem){
+  $scope.plus = function (cartItem) {
     cartItemService.plusNumber(cartItem);
     $scope.cartItems = cartItemService.category(categorys, cartLists);
-  }
+  };
 
 });

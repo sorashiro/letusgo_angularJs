@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('ModifyCategoryCtrl', function($scope, categoryService){
+angular.module('letusgoAngularJsApp').controller('ModifyCategoryCtrl', function ($scope, categoryService) {
 
   $scope.category = categoryService.getName();
 
-  $scope.modifyCategory = function(){
+  $scope.modifyCategory = function () {
     var newName = $scope.input;
     categoryService.modifyCategory($scope.category, newName);
     alert('修改成功！');
-  }
+  };
 });

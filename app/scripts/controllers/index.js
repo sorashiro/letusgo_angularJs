@@ -16,10 +16,10 @@ angular.module('letusgoAngularJsApp')
 
       $scope.count = 0;
     });
-    if (localStorage.clickcount){
+    if (localStorage.clickcount) {
       $scope.count = localStorage.clickcount;
     }
-    else{
+    else {
       $scope.count = 0;
     }
 

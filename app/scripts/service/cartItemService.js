@@ -1,27 +1,27 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').service('cartItemService', function(localStorageService){
+angular.module('letusgoAngularJsApp').service('cartItemService', function (localStorageService) {
 
-  this.cartList = function(cartLists){
+  this.cartList = function (cartLists) {
     cartLists = localStorageService.get('cartList');
     return cartLists;
   };
 
-  this.category = function(categorys, cartLists){
+  this.category = function (categorys, cartLists) {
     var cartItems = [];
+    var category = {};
     cartLists = localStorageService.get('cartList') || [];
 
-    for (var i = 0; i < cartLists.length; i++){
+    for (var i = 0; i < cartLists.length; i++) {
       category = cartLists[i].item.category;
       if (categorys.indexOf(category) === -1) {
         categorys.push(category);
       }
     }
-    for (var k = 0; k < categorys.length; k++){
+    for (var k = 0; k < categorys.length; k++) {
       var item = [];
-      var category = {};
-      for (var j = 0; j < cartLists.length; j++){
-        if (categorys[k] === cartLists[j].item.category){
+      for (var j = 0; j < cartLists.length; j++) {
+        if (categorys[k] === cartLists[j].item.category) {
           item.push(cartLists[j]);
         }
       }
@@ -35,43 +35,42 @@ angular.module('letusgoAngularJsApp').service('cartItemService', function(localS
     return cartItems;
   };
 
-  this.reduceNumber = function(cartItem){
+  this.reduceNumber = function (cartItem) {
     var cartLists;
     cartLists = localStorageService.get('cartList');
     var name;
     name = cartItem.name;
-    for (var i = 0; i < cartLists.length; i++){
-      if(name === cartLists[i].item.name){
+    for (var i = 0; i < cartLists.length; i++) {
+      if (name === cartLists[i].item.name) {
         cartLists[i].num--;
-        if (cartLists[i].num === 0){
-          cartLists.splice(i,1);
+        if (cartLists[i].num === 0) {
+          cartLists.splice(i, 1);
         }
       }
     }
     localStorageService.set('cartList', cartLists);
   };
 
-  this.plusNumber = function(cartItem){
+  this.plusNumber = function (cartItem) {
     var cartLists;
     cartLists = localStorageService.get('cartList');
     var name;
     name = cartItem.name;
 
-    for (var i = 0; i < cartLists.length; i++){
-      if(name === cartLists[i].item.name)
-      {
+    for (var i = 0; i < cartLists.length; i++) {
+      if (name === cartLists[i].item.name) {
         cartLists[i].num++;
       }
     }
     localStorageService.set('cartList', cartLists);
   };
 
-  this.getTotal = function(){
+  this.getTotal = function () {
     var total = 0;
     var cartLists = localStorageService.get('cartList') || [];
-    for (var i = 0; i < cartLists.length; i++){
+    for (var i = 0; i < cartLists.length; i++) {
       total += cartLists[i].num * cartLists[i].item.price;
     }
     return total;
-  }
+  };
 });

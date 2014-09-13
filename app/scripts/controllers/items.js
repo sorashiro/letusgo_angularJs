@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('ItemsCtrl', function($scope, itemsService) {
+angular.module('letusgoAngularJsApp').controller('ItemsCtrl', function ($scope, itemsService) {
 
   var cartList = [];
   var names = [];
@@ -8,7 +8,7 @@ angular.module('letusgoAngularJsApp').controller('ItemsCtrl', function($scope, i
   $scope.items = itemsService.loadItems();
   $scope.$emit('_parent_count');
 
-  $scope.addToCart = function(item){
+  $scope.addToCart = function (item) {
 
     $scope.count = itemsService.count();
     $scope.$emit('_parent_count');

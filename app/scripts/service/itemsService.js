@@ -1,24 +1,24 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').service('itemsService', function(localStorageService){
+angular.module('letusgoAngularJsApp').service('itemsService', function (localStorageService) {
 
-  this.items = function(){
+  this.items = function () {
 
     var itemsList = [
       {
-        "category": "fruit", "name": "apple", "unit": "斤", "price": "5.50"
+        'category': 'fruit', 'name': 'apple', 'unit': '斤', 'price': '5.50'
       },
       {
-        "category": "fruit", "name": "leechee", "unit": "斤", "price": "15.00"
+        'category': 'fruit', 'name': 'leechee', 'unit': '斤', 'price': '15.00'
       },
       {
-        "category": "food", "name": "sprite", "unit": "瓶", "price": "3.00"
+        'category': 'food', 'name': 'sprite', 'unit': '瓶', 'price': '3.00'
       },
       {
-        "category": "food", "name": "coca-cola", "unit": "瓶", "price": "3.00"
+        'category': 'food', 'name': 'coca-cola', 'unit': '瓶', 'price': '3.00'
       },
       {
-        "category": "livingGoods", "name": "battery", "unit": "个", "price": "2.00"
+        'category': 'livingGoods', 'name': 'battery', 'unit': '个', 'price': '2.00'
       }
     ];
     localStorageService.set('itemsList', itemsList);
@@ -26,10 +26,10 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
     return itemsList;
   };
 
-  this.loadItems = function(){
+  this.loadItems = function () {
     var item = localStorageService.get('itemsList');
-    for (var i = 0; i < item.length; i++){
-      if (!item[i].name){
+    for (var i = 0; i < item.length; i++) {
+      if (!item[i].name) {
         item.splice(i, 1);
         i--;
       }
@@ -38,7 +38,7 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
     return item;
   };
 
-  this.count = function(){
+  this.count = function () {
     var count;
 
     if (localStorage.clickcount) {
@@ -55,40 +55,40 @@ angular.module('letusgoAngularJsApp').service('itemsService', function(localStor
 
   };
 
-  this.addToCart = function(cartList, names, item){
+  this.addToCart = function (cartList, names, item) {
 
     var name, num;
     var cart;
     name = item.name;
     num = 1;
-    cart = {"item": item, "num": num};
+    cart = {'item': item, 'num': num};
     names = this.get('names') || [];
     var has = names.indexOf(name);
     cartList = this.get('cartList') || [];
-    if(has === -1){
+    if (has === -1) {
       cartList.push(cart);
       names.push(name);
     }
-    else{
-      for (var i = 0; i < cartList.length; i++){
-        if (cartList[i].item.name === name){
+    else {
+      for (var i = 0; i < cartList.length; i++) {
+        if (cartList[i].item.name === name) {
           cartList[i].num++;
         }
       }
     }
-      this.add('names', names);
-      this.add('cartList', cartList);
+    this.add('names', names);
+    this.add('cartList', cartList);
   };
 
-  this.add = function(key, value){
+  this.add = function (key, value) {
     return localStorageService.set(key, value);
   };
 
-  this.get = function(key){
+  this.get = function (key) {
     return localStorageService.get(key);
   };
 
-  this.remove = function(key){
+  this.remove = function (key) {
     return localStorageService.remove(key);
   };
 

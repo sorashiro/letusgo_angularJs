@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', function($scope, itemsService, categoryService, goodsInformationService){
+angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', function ($scope, itemsService, categoryService, goodsInformationService) {
 
   $scope.loadGoodsInformations = itemsService.loadItems();
   $scope.categorys = categoryService.loadCategory();
-  $scope.categoryName = "分类名称";
-  $scope.getName = function(category){
+  $scope.categoryName = '分类名称';
+  $scope.getName = function (category) {
     $scope.categoryName = category;
   };
 
-  $scope.addGoods = function(){
+  $scope.addGoods = function () {
 
     var name = $scope.name;
     var unit = $scope.unit;
     var price = $scope.price;
-    if (name && unit && price && $scope.categoryName !== "分类名称") {
+    if (name && unit && price && $scope.categoryName !== '分类名称') {
       goodsInformationService.addGoods($scope.categoryName, name, unit, price);
       alert('添加成功~');
     }
@@ -23,12 +23,12 @@ angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', functio
     }
   };
 
-  $scope.remove = function(goodsInformation){
+  $scope.remove = function (goodsInformation) {
     goodsInformationService.remove(goodsInformation);
     $scope.loadGoodsInformations = itemsService.loadItems();
   };
 
-  $scope.change = function(goodsInformation){
+  $scope.change = function (goodsInformation) {
     goodsInformationService.change(goodsInformation);
   };
 });
