@@ -1,32 +1,32 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').service('CategoryService', function (localStorageService, itemsService) {
+angular.module('letusgoAngularJsApp').service('CategoryService', function (localStorageService, ItemsService) {
 
   this.loadCategory = function () {
     var categorys = [];
-    var items = itemsService.get('itemsList');
+    var items = ItemsService.get('itemsList');
     for (var i = 0; i < items.length; i++) {
       if (categorys.indexOf(items[i].category) === -1) {
         categorys.push(items[i].category);
       }
     }
-    itemsService.add('categorys', categorys);
+    ItemsService.add('categorys', categorys);
     return categorys;
   };
 
   this.addCategory = function (category) {
-    var items = itemsService.get('itemsList');
+    var items = ItemsService.get('itemsList');
     var categorys = this.loadCategory();
     var newItem = {'category': category};
 
     items.push(newItem);
     categorys.push(category);
-    itemsService.add('itemsList', items);
-    itemsService.add('categorys', categorys);
+    ItemsService.add('itemsList', items);
+    ItemsService.add('categorys', categorys);
   };
 
   this.removes = function (category) {
-    var items = itemsService.get('itemsList');
+    var items = ItemsService.get('itemsList');
     for (var i = 0; i < items.length; i++) {
       if (category === items[i].category) {
         if (items[i].name) {
@@ -39,27 +39,27 @@ angular.module('letusgoAngularJsApp').service('CategoryService', function (local
         }
       }
     }
-    itemsService.add('itemsList', items);
+    ItemsService.add('itemsList', items);
   };
 
   this.modify = function (category) {
     var categoryName = category;
-    itemsService.add('modifyCategory', categoryName);
+    ItemsService.add('modifyCategory', categoryName);
   };
 
   this.getName = function () {
-    var category = itemsService.get('modifyCategory');
+    var category = ItemsService.get('modifyCategory');
     return category;
   };
 
   this.modifyCategory = function (category, newName) {
-    var items = itemsService.get('itemsList');
+    var items = ItemsService.get('itemsList');
     for (var i = 0; i < items.length; i++) {
       if (category === items[i].category) {
         items[i].category = newName;
       }
     }
-    itemsService.add('itemsList', items);
+    ItemsService.add('itemsList', items);
   };
 
 });
