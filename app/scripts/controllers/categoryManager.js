@@ -6,6 +6,7 @@ angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function ($scop
 
   $scope.addCategory = function () {
     var category = $scope.input;
+
     if (category) {
       CategoryService.addCategory(category);
       alert('添加成功~');
@@ -16,15 +17,13 @@ angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function ($scop
   };
 
   $scope.removes = function (category) {
-
     CategoryService.removes(category);
     $scope.categorys = CategoryService.loadCategory();
 
   };
 
   $scope.change = function (category) {
-
     CategoryService.modify(category);
-
   };
+
 });

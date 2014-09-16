@@ -5,6 +5,7 @@ angular.module('letusgoAngularJsApp').service('CategoryService', function (local
   this.loadCategory = function () {
     var categorys = [];
     var items = ItemsService.get('itemsList');
+
     for (var i = 0; i < items.length; i++) {
       if (categorys.indexOf(items[i].category) === -1) {
         categorys.push(items[i].category);
@@ -27,6 +28,7 @@ angular.module('letusgoAngularJsApp').service('CategoryService', function (local
 
   this.removes = function (category) {
     var items = ItemsService.get('itemsList');
+
     for (var i = 0; i < items.length; i++) {
       if (category === items[i].category) {
         if (items[i].name) {
@@ -54,6 +56,7 @@ angular.module('letusgoAngularJsApp').service('CategoryService', function (local
 
   this.modifyCategory = function (category, newName) {
     var items = ItemsService.get('itemsList');
+
     for (var i = 0; i < items.length; i++) {
       if (category === items[i].category) {
         items[i].category = newName;

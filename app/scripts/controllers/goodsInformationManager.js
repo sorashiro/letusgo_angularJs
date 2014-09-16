@@ -5,12 +5,12 @@ angular.module('letusgoAngularJsApp').controller('GoodsInformationCtrl', functio
   $scope.loadGoodsInformations = ItemsService.loadItems();
   $scope.categorys = CategoryService.loadCategory();
   $scope.categoryName = '分类名称';
+
   $scope.getName = function (category) {
     $scope.categoryName = category;
   };
 
   $scope.addGoods = function () {
-
     var name = $scope.name;
     var unit = $scope.unit;
     var price = $scope.price;

@@ -18,6 +18,7 @@ angular.module('letusgoAngularJsApp').service('CartItemService', function (local
         categorys.push(category);
       }
     }
+
     for (var k = 0; k < categorys.length; k++) {
       var item = [];
       for (var j = 0; j < cartLists.length; j++) {
@@ -40,6 +41,7 @@ angular.module('letusgoAngularJsApp').service('CartItemService', function (local
     cartLists = localStorageService.get('cartList');
     var name;
     name = cartItem.name;
+
     for (var i = 0; i < cartLists.length; i++) {
       if (name === cartLists[i].item.name) {
         cartLists[i].num--;
@@ -68,6 +70,7 @@ angular.module('letusgoAngularJsApp').service('CartItemService', function (local
   this.getTotal = function () {
     var total = 0;
     var cartLists = localStorageService.get('cartList') || [];
+
     for (var i = 0; i < cartLists.length; i++) {
       total += cartLists[i].num * cartLists[i].item.price;
     }

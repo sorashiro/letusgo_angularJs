@@ -58,12 +58,13 @@ angular.module('letusgoAngularJsApp').service('ItemsService', function (localSto
 
   this.addToCart = function (cartList, names, item) {
 
-    var name, num;
     var cart;
-    name = item.name;
-    num = 1;
+    var name = item.name;
+    var num = 1;
+
     cart = {'item': item, 'num': num};
     names = this.get('names') || [];
+    
     var has = names.indexOf(name);
     cartList = this.get('cartList') || [];
     if (has === -1) {

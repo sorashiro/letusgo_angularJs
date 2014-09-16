@@ -6,7 +6,9 @@ angular.module('letusgoAngularJsApp').controller('PayCtrl', function ($scope, It
   $scope.cartItems = ItemsService.get('cartList');
   $scope.total = CartItemService.getTotal();
 
+
   $scope.account = function () {
+
     ItemsService.remove('cartList');
     ItemsService.remove('names');
     ItemsService.add('clickcount', 0);

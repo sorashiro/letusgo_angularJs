@@ -5,6 +5,7 @@ angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function ($s
   $scope.item = GoodsInformationService.getItem();
   $scope.categorys = CategoryService.loadCategory();
   $scope.categoryName = GoodsInformationService.getCategory();
+
   $scope.changeName = function (category) {
     $scope.categoryName = category;
   };

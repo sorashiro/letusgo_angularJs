@@ -10,6 +10,7 @@ angular.module('letusgoAngularJsApp').service('GoodsInformationService', functio
 
   this.remove = function (goodsInformation) {
     var items = ItemsService.get('itemsList');
+
     for (var i = 0; i < items.length; i++) {
       if (goodsInformation.name === items[i].name) {
         items.splice(i, 1);
@@ -21,6 +22,7 @@ angular.module('letusgoAngularJsApp').service('GoodsInformationService', functio
   this.change = function (goodsInformation) {
     var items = ItemsService.loadItems();
     var item;
+
     for (var i = 0; i < items.length; i++) {
       if (goodsInformation.name === items[i].name) {
         item = [items[i]];
@@ -43,6 +45,7 @@ angular.module('letusgoAngularJsApp').service('GoodsInformationService', functio
     var items = ItemsService.get('itemsList');
     var item = this.getItem();
     var newItem = {'category': category, 'name': name, 'unit': unit, 'price': price};
+
     for (var i = 0; i < items.length; i++) {
       if (item[0].name === items[i].name) {
         items.splice(i, 1, newItem);
