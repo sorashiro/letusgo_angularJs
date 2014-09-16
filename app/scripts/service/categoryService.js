@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').service('categoryService', function (localStorageService, itemsService) {
+angular.module('letusgoAngularJsApp').service('CategoryService', function (localStorageService, itemsService) {
 
   this.loadCategory = function () {
     var categorys = [];

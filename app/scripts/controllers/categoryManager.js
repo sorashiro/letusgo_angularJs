@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function ($scope, categoryService) {
+angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function ($scope, CategoryService) {
 
-  $scope.categorys = categoryService.loadCategory();
+  $scope.categorys = CategoryService.loadCategory();
 
   $scope.addCategory = function () {
     var category = $scope.input;
     if (category) {
-      categoryService.addCategory(category);
+      CategoryService.addCategory(category);
       alert('添加成功~');
     }
     else {
@@ -17,14 +17,14 @@ angular.module('letusgoAngularJsApp').controller('CategoryCtrl', function ($scop
 
   $scope.removes = function (category) {
 
-    categoryService.removes(category);
-    $scope.categorys = categoryService.loadCategory();
+    CategoryService.removes(category);
+    $scope.categorys = CategoryService.loadCategory();
 
   };
 
   $scope.change = function (category) {
 
-    categoryService.modify(category);
+    CategoryService.modify(category);
 
   };
 });

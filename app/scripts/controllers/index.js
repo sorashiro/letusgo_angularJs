@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('letusgoAngularJsApp')
-  .controller('IndexCtrl', function ($scope, itemsService) {
+  .controller('IndexCtrl', function ($scope, ItemsService) {
 
-    itemsService.items();
+    ItemsService.items();
 
-    $scope.count = itemsService.get('clickcount') || 0;
+    $scope.count = ItemsService.get('clickcount') || 0;
 
     $scope.$on('_parent_count', function () {
-      $scope.count = itemsService.count();
-      $scope.count = itemsService.get('clickcount');
+      $scope.count = ItemsService.count();
+      $scope.count = ItemsService.get('clickcount');
     });
 
     $scope.$on('_parent_count===0', function () {

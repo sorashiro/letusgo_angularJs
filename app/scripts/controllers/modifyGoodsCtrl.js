@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function ($scope, categoryService, goodsInformationService) {
+angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function ($scope, CategoryService, GoodsInformationService) {
 
-  $scope.item = goodsInformationService.getItem();
-  $scope.categorys = categoryService.loadCategory();
-  $scope.categoryName = goodsInformationService.getCategory();
+  $scope.item = GoodsInformationService.getItem();
+  $scope.categorys = CategoryService.loadCategory();
+  $scope.categoryName = GoodsInformationService.getCategory();
   $scope.changeName = function (category) {
     $scope.categoryName = category;
   };
@@ -13,7 +13,7 @@ angular.module('letusgoAngularJsApp').controller('ModifyGoodsCtrl', function ($s
     var name = $scope.name;
     var unit = $scope.unit;
     var price = $scope.price;
-    goodsInformationService.modify($scope.categoryName, name, unit, price);
+    GoodsInformationService.modify($scope.categoryName, name, unit, price);
     alert('修改成功！');
   };
 });
