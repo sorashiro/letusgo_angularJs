@@ -10,8 +10,9 @@ angular.module('letusgoAngularJsApp').controller('ItemsCtrl', function ($scope, 
 
   $scope.addToCart = function (item) {
 
-    $scope.count = ItemsService.count();
-    $scope.$emit('_parent_count');
+    ItemsService.count();
+    $scope.$emit('parentCount');
+
     ItemsService.addToCart(cartList, names, item);
   };
 });

@@ -7,21 +7,9 @@ angular.module('letusgoAngularJsApp')
 
     $scope.count = ItemsService.get('clickcount') || 0;
 
-    $scope.$on('_parent_count', function () {
-      $scope.count = ItemsService.count();
+    $scope.$on('parentCount', function () {
       $scope.count = ItemsService.get('clickcount');
     });
-
-    $scope.$on('_parent_count===0', function () {
-
-      $scope.count = 0;
-    });
-    if (localStorage.clickcount) {
-      $scope.count = localStorage.clickcount;
-    }
-    else {
-      $scope.count = 0;
-    }
 
   });
 
