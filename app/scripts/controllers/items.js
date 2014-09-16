@@ -6,7 +6,7 @@ angular.module('letusgoAngularJsApp').controller('ItemsCtrl', function ($scope, 
   var names = [];
 
   $scope.items = ItemsService.loadItems();
-  $scope.$emit('_parent_count');
+  $scope.$emit('parentCount');
 
   $scope.addToCart = function (item) {
 
