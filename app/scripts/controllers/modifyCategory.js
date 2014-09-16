@@ -2,6 +2,7 @@
 
 angular.module('letusgoAngularJsApp').controller('ModifyCategoryCtrl', function ($scope, CategoryService) {
 
+  $scope.$emit('parentManage');
   $scope.category = CategoryService.getName();
 
   $scope.modifyCategory = function () {

@@ -6,6 +6,7 @@ angular.module('letusgoAngularJsApp').controller('CartCtrl', function ($scope, C
   var cartLists = [];
   var cartItems = CartItemService.category(categorys, cartLists);
 
+  $scope.$emit('parentCart');
 
   if (cartItems.length === 0) {
     $scope.pay = '返回商城';
