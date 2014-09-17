@@ -27,7 +27,7 @@ angular.module('letusgoAngularJsApp').service('ItemsService', function (localSto
   };
 
   this.loadItems = function () {
-    var item = localStorageService.get('itemsList');
+    var item = localStorageService.get('itemsList') || [];
     for (var i = 0; i < item.length; i++) {
       if (!item[i].name) {
         item.splice(i, 1);
