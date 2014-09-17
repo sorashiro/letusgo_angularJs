@@ -61,10 +61,25 @@ describe('Controller: CartCtrl', function () {
     $scope.unit = '斤';
     $scope.price = '5.00';
     $scope.categoryName = 'food';
-    
+
     $scope.addGoods();
     expect(GoodsService.addGoods).toHaveBeenCalledWith($scope.categoryName, $scope.name, $scope.unit, $scope.price);
 
   });
 
+  it('should alert warning without information', function() {
+    createController();
+    $scope.addGoods();
+  });
+
+  it('should remove goods', function() {
+    spyOn(GoodsService, 'remove');
+    spyOn(ItemsService, 'loadItems');
+    createController();
+
+    $scope.remove();
+    expect(GoodsService.remove).toHaveBeenCalled();
+    expect(ItemsService.loadItems).toHaveBeenCalled();
+  });
+  
 });
