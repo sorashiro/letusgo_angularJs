@@ -24,8 +24,8 @@ describe('Controller: ItemsCtrl', function () {
   it('should return all items to items', function () {
     spyOn(ItemsService, 'loadItems');
     createController();
-    var result = ItemsService.loadItems();
-    expect($scope.items).toEqual(result);
+    var items = ItemsService.loadItems();
+    expect($scope.items).toEqual(items);
   });
 
   it('emit from parent controller', function() {
@@ -33,6 +33,13 @@ describe('Controller: ItemsCtrl', function () {
     createController();
     expect($scope.$emit).toHaveBeenCalledWith('parentCount');
     expect($scope.$emit).toHaveBeenCalledWith('parentItems');
+  });
+
+  it('count should be increase', function() {
+    spyOn(ItemsService, 'count');
+    createController();
+    ItemsService.count();
+    expect(ItemsService.count).toHaveBeenCalled();
   });
 
 
