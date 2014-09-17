@@ -27,4 +27,13 @@ describe('Controller: ItemsCtrl', function () {
     var result = ItemsService.loadItems();
     expect($scope.items).toEqual(result);
   });
+
+  it('emit from parent controller', function() {
+    spyOn($scope, '$emit');
+    createController();
+    expect($scope.$emit).toHaveBeenCalledWith('parentCount');
+    expect($scope.$emit).toHaveBeenCalledWith('parentItems');
+  });
+
+
 });
