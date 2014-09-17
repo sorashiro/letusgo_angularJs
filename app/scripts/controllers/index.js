@@ -6,11 +6,10 @@ angular.module('letusgoAngularJsApp')
     ItemsService.items();
 
     $scope.$emit('parentHome');
-
-    $scope.count = ItemsService.get('clickcount') || 0;
+    $scope.$emit('parentCount');
 
     $scope.$on('parentCount', function () {
-      $scope.count = ItemsService.get('clickcount');
+      $scope.count = ItemsService.get('clickcount') || 0;
     });
 
 
