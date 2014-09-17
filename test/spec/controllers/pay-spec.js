@@ -38,4 +38,12 @@ describe('Controller: PayCtrl', function () {
     expect(ItemsService.get).toHaveBeenCalled();
   });
 
+  it('should get total', function() {
+    spyOn(CartService, 'getTotal');
+    createController();
+    $scope.total = CartService.getTotal();
+    expect(CartService.getTotal).toHaveBeenCalled();
+  });
+
+  
 });
