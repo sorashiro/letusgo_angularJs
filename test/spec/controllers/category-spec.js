@@ -43,4 +43,20 @@ describe('Controller: ItemsCtrl', function () {
     expect(CategoryService.addCategory).toHaveBeenCalledWith(category);
   });
 
+  it('remove category', function() {
+    spyOn(CategoryService, 'removes');
+    spyOn(CategoryService, 'loadCategory');
+    createController();
+    $scope.removes();
+    expect(CategoryService.removes).toHaveBeenCalled();
+    expect(CategoryService.loadCategory).toHaveBeenCalled();
+  });
+
+  it('should change category name', function() {
+    spyOn(CategoryService, 'modify');
+    createController();
+    $scope.change();
+    expect(CategoryService.modify).toHaveBeenCalled();
+  });
+
 });
