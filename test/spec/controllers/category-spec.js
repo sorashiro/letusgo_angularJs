@@ -38,9 +38,19 @@ describe('Controller: ItemsCtrl', function () {
   it('add new category', function() {
     spyOn(CategoryService, 'addCategory');
     createController();
-    var category = '1';
+    $scope.input = '1';
+    var category = $scope.input;
+    $scope.addCategory();
     CategoryService.addCategory(category);
-    expect(CategoryService.addCategory).toHaveBeenCalledWith(category);
+    expect(CategoryService.addCategory).toHaveBeenCalled();
+  });
+
+  it('input is null', function() {
+    spyOn(CategoryService, 'addCategory');
+    createController();
+
+    var category = '';
+    $scope.addCategory();
   });
 
   it('remove category', function() {
