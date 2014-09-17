@@ -16,7 +16,7 @@ describe('Controller: ItemsCtrl', function () {
       createController = function () {
         return $controller('ItemsCtrl', {
           $scope: $scope,
-          itemService: ItemsService
+          ItemsService: ItemsService
         });
       };
     });
