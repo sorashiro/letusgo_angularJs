@@ -49,5 +49,55 @@ describe('Controller: IndexCtrl', function () {
     expect($scope.count).toBe(count);
   });
 
+  it('home title should highlight', function() {
+    createController();
+    $scope.$digest();
 
+    $rootScope.$broadcast('parentHome');
+    $scope.$digest();
+
+    expect($scope.homeStyle).toBe('active');
+    expect($scope.cartStyle).toBe('0');
+    expect($scope.itemsStyle).toBe('0');
+    expect($scope.manageStyle).toBe('0');
+  });
+
+  it('items title should highlight', function() {
+    createController();
+    $scope.$digest();
+
+    $rootScope.$broadcast('parentItems');
+    $scope.$digest();
+
+    expect($scope.homeStyle).toBe('0');
+    expect($scope.cartStyle).toBe('0');
+    expect($scope.itemsStyle).toBe('active');
+    expect($scope.manageStyle).toBe('0');
+  });
+
+  it('cart title should highlight', function() {
+    createController();
+    $scope.$digest();
+
+    $rootScope.$broadcast('parentCart');
+    $scope.$digest();
+
+    expect($scope.homeStyle).toBe('0');
+    expect($scope.cartStyle).toBe('active');
+    expect($scope.itemsStyle).toBe('0');
+    expect($scope.manageStyle).toBe('0');
+  });
+
+  it('manage title should highlight', function() {
+    createController();
+    $scope.$digest();
+
+    $rootScope.$broadcast('parentManage');
+    $scope.$digest();
+
+    expect($scope.homeStyle).toBe('0');
+    expect($scope.cartStyle).toBe('0');
+    expect($scope.itemsStyle).toBe('0');
+    expect($scope.manageStyle).toBe('active');
+  });
 });
