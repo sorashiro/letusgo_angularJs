@@ -54,5 +54,17 @@ describe('Controller: CartCtrl', function () {
     expect(name).toBe(category);
   });
 
+  it('should add new goods', function() {
+    spyOn(GoodsService, 'addGoods');
+    createController();
+    $scope.name = 'origin';
+    $scope.unit = '斤';
+    $scope.price = '5.00';
+    $scope.categoryName = 'food';
+    
+    $scope.addGoods();
+    expect(GoodsService.addGoods).toHaveBeenCalledWith($scope.categoryName, $scope.name, $scope.unit, $scope.price);
+
+  });
 
 });
