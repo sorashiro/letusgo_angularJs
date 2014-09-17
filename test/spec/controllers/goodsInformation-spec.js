@@ -44,6 +44,15 @@ describe('Controller: CartCtrl', function () {
     createController();
     $scope.categorys = CategoryService.loadCategory();
     expect(CategoryService.loadCategory).toHaveBeenCalled();
-  })
+  });
+
+  it ('should get category name', function() {
+    var category = '1';
+    createController();
+    $scope.getName(category);
+    var name = $scope.categoryName;
+    expect(name).toBe(category);
+  });
+
 
 });
