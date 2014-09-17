@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: CartCtrl', function () {
+describe('Controller: GoodsCtrl', function () {
   var $scope, createController, ItemsService, CategoryService, GoodsService;
 
   beforeEach(function () {
