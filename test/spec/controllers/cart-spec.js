@@ -33,5 +33,17 @@ describe('Controller: CartCtrl', function () {
     expect($scope.$emit).toHaveBeenCalledWith('parentCart');
   });
 
+  it('should show correct route', function() {
+    spyOn(CartService, 'category').andReturn(cartItem);
+    createController();
+
+    var categorys = [];
+    var cartLists = [];
+    var cartItems = CartService.category(categorys, cartLists);
+    expect(cartItems).toBe(cartItem);
+    expect($scope.pay).toBe('小二算账');
+    expect($scope.url).toBe('#/pay');
+
+  });
 
 });
