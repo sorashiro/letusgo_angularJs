@@ -42,5 +42,14 @@ describe('Controller: ItemsCtrl', function () {
     expect(ItemsService.count).toHaveBeenCalled();
   });
 
+  it('item should be added to cart', function() {
+    spyOn(ItemsService, 'addToCart');
+    createController();
+    var item = {'category': 'fruit', 'name': 'apple', 'unit': '斤', 'price': '5.50'};
+    var cartList = [];
+    var names = [];
+    $scope.addToCart(item);
+    expect(ItemsService.addToCart).toHaveBeenCalledWith(cartList, names, item);
+  });
 
 });
