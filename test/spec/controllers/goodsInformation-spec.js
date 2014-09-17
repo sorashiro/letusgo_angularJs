@@ -81,5 +81,12 @@ describe('Controller: CartCtrl', function () {
     expect(GoodsService.remove).toHaveBeenCalled();
     expect(ItemsService.loadItems).toHaveBeenCalled();
   });
-  
+
+  it('should modify goods', function() {
+    spyOn(GoodsService, 'change');
+    createController();
+
+    $scope.change();
+    expect(GoodsService.change).toHaveBeenCalled();
+  });
 });
