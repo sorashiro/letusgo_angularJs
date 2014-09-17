@@ -28,5 +28,12 @@ describe('Controller: ItemsCtrl', function () {
     expect($scope.$emit).toHaveBeenCalledWith('parentManage');
   });
 
-  
+  it('should load categories', function() {
+    spyOn(CategoryService, 'loadCategory');
+    createController();
+    $scope.categorys = CategoryService.loadCategory();
+    expect(CategoryService.loadCategory).toHaveBeenCalled();
+  });
+
+
 });
