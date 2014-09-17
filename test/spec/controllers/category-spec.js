@@ -35,5 +35,12 @@ describe('Controller: ItemsCtrl', function () {
     expect(CategoryService.loadCategory).toHaveBeenCalled();
   });
 
+  it('add new category', function() {
+    spyOn(CategoryService, 'addCategory');
+    createController();
+    var category = '1';
+    CategoryService.addCategory(category);
+    expect(CategoryService.addCategory).toHaveBeenCalledWith(category);
+  });
 
 });
