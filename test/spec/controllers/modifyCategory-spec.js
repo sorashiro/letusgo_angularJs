@@ -28,4 +28,11 @@ describe('Controller: ModifyCategoryCtrl', function () {
     expect($scope.$emit).toHaveBeenCalledWith('parentManage');
   });
 
+  it('should get category name', function() {
+    spyOn(CategoryService, 'getName');
+    createController();
+
+    expect(CategoryService.getName).toHaveBeenCalled();
+  })
+
 });
