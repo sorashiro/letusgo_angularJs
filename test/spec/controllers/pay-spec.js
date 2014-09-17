@@ -45,5 +45,14 @@ describe('Controller: PayCtrl', function () {
     expect(CartService.getTotal).toHaveBeenCalled();
   });
 
-  
+  it('success to pay', function() {
+    spyOn(ItemsService, 'remove');
+    spyOn(ItemsService, 'add');
+    spyOn($scope, '$emit');
+    createController();
+    $scope.account();
+    expect(ItemsService.remove).toHaveBeenCalled();
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect($scope.$emit).toHaveBeenCalledWith('parentCount');
+  });
 });
