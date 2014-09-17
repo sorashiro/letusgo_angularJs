@@ -39,6 +39,11 @@ describe('Controller: CartCtrl', function () {
     expect(ItemsService.loadItems).toHaveBeenCalled();
   });
 
-  
+  it('should load category', function() {
+    spyOn(CategoryService, 'loadCategory');
+    createController();
+    $scope.categorys = CategoryService.loadCategory();
+    expect(CategoryService.loadCategory).toHaveBeenCalled();
+  })
 
 });
