@@ -32,4 +32,13 @@ describe('Controller: CartCtrl', function () {
     expect($scope.$emit).toHaveBeenCalledWith('parentManage');
   });
 
+  it('should load goods information', function() {
+    spyOn(ItemsService, 'loadItems');
+    createController();
+    $scope.loadGoodsInformations = ItemsService.loadItems();
+    expect(ItemsService.loadItems).toHaveBeenCalled();
+  });
+
+  
+
 });
