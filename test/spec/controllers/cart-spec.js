@@ -45,5 +45,23 @@ describe('Controller: CartCtrl', function () {
     expect($scope.url).toBe('#/pay');
 
   });
+  it('quantity should reduce', function() {
+    spyOn(ItemsService, 'reduceCount');
+    spyOn(CartService, 'reduceNumber');
+    createController();
 
+    $scope.reduce(cartItem);
+    expect(ItemsService.reduceCount).toHaveBeenCalled();
+    expect(CartService.reduceNumber).toHaveBeenCalledWith(cartItem);
+  });
+
+  it('quantity should increase', function() {
+    spyOn(ItemsService, 'count');
+    spyOn(CartService, 'plusNumber');
+    createController();
+
+    $scope.plus(cartItem);
+    expect(ItemsService.count).toHaveBeenCalled();
+    expect(CartService.plusNumber).toHaveBeenCalledWith(cartItem);
+  });
 });
