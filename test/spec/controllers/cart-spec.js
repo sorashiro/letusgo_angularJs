@@ -45,6 +45,14 @@ describe('Controller: CartCtrl', function () {
     expect($scope.url).toBe('#/pay');
 
   });
+  it('should show correct route', function() {
+    spyOn(CartService, 'category').andReturn([]);
+    createController();
+
+    expect($scope.pay).toBe('返回商城');
+    expect($scope.url).toBe('#/items');
+
+  });
   it('quantity should reduce', function() {
     spyOn(ItemsService, 'reduceCount');
     spyOn(CartService, 'reduceNumber');
