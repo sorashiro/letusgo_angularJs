@@ -33,6 +33,12 @@ describe('Controller: ModifyGoodsCtrl', function () {
     expect($scope.$emit).toHaveBeenCalledWith('parentManage');
   });
 
+  it('should get item', function() {
+    spyOn(GoodsService, 'getItem');
+    createController();
+    expect(GoodsService.getItem).toHaveBeenCalled();
+  });
+
 
 
 
