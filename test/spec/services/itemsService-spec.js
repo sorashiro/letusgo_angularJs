@@ -34,11 +34,22 @@ describe('Controller: ItemsService', function () {
 
   it('should load items', function() {
     spyOn(localStorageService, 'get').andReturn(items);
+    spyOn(localStorageService, 'set');
     var itemsList = ItemsService.loadItems();
 
+    expect(localStorageService.set).toHaveBeenCalled();
     expect(localStorageService.get).toHaveBeenCalled();
     expect(itemsList.length).toBe(5);
   });
 
-  
+  it('should increase count', function() {
+    spyOn(ItemsService, 'get').andReturn(1);
+    spyOn(ItemsService, 'add');
+    var count = ItemsService.count();
+
+    expect(count).toBe(2);
+    expect(ItemsService.get).toHaveBeenCalled();
+    expect(ItemsService.add).toHaveBeenCalled();
+  });
+
 });
