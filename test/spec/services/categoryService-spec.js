@@ -31,4 +31,18 @@ describe('Controller: CategoryService', function () {
     expect(categories).toEqual(categories);
   });
 
+  it('should add new category', function() {
+    var category = 'book';
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    spyOn(CategoryService, 'loadCategory').andReturn(categories);
+    spyOn(ItemsService, 'add');
+
+    CategoryService.addCategory(category);
+
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(categories).toEqual(['fruit','food','livingGoods','book']);
+
+  })
+
 });
