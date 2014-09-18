@@ -45,5 +45,13 @@ describe('Controller: ModifyGoodsCtrl', function () {
     expect(CategoryService.loadCategory).toHaveBeenCalled();
   });
 
+  it('shoude get category name', function() {
+    createController();
+    var item = {'category':'fruit','name':'leechee','unit':'斤','price':'15.00'};
+    $scope.categoryName = item.category;
+    expect($scope.categoryName).toBe('fruit');
+  });
+
+
 
 });
