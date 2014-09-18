@@ -52,4 +52,14 @@ describe('Controller: ItemsService', function () {
     expect(ItemsService.add).toHaveBeenCalled();
   });
 
+  it('should reduce count', function() {
+    spyOn(ItemsService, 'add');
+    spyOn(ItemsService, 'get').andReturn(3);
+    var count = ItemsService.reduceCount();
+
+    expect(count).toBe(2);
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(ItemsService.get).toHaveBeenCalled();
+  })
+
 });
