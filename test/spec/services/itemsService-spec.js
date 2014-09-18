@@ -60,6 +60,18 @@ describe('Controller: ItemsService', function () {
     expect(count).toBe(2);
     expect(ItemsService.add).toHaveBeenCalled();
     expect(ItemsService.get).toHaveBeenCalled();
-  })
+  });
+
+//  it('should add to cart', function() {
+//    spyOn(ItemsService, 'get').andReturn
+//    var cartList = [];
+//    var names = [];
+//
+//  })
+  it('should use localStorageService set function', function() {
+    spyOn(localStorageService, 'set');
+    ItemsService.add();
+    expect(localStorageService.set).toHaveBeenCalled();
+  });
 
 });
