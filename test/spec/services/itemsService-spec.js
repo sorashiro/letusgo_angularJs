@@ -62,12 +62,28 @@ describe('Controller: ItemsService', function () {
     expect(ItemsService.get).toHaveBeenCalled();
   });
 
-//  it('should add to cart', function() {
-//    spyOn(ItemsService, 'get').andReturn
-//    var cartList = [];
-//    var names = [];
-//
-//  })
+  it('should add to cart', function() {
+    spyOn(ItemsService, 'get');
+    spyOn(ItemsService, 'add');
+    var cartList = [];
+    var names = [];
+    ItemsService.addToCart(cartList, names, items);
+
+    expect(ItemsService.get).toHaveBeenCalled();
+    expect(ItemsService.add).toHaveBeenCalled();
+  });
+
+  it('should only increase num', function() {
+    var cartList = [{'item':{'category':'fruit','name':'apple','unit':'斤',price:'5.50'},num:1}];
+    var item = items[0];
+    var names = ['apple'];
+    spyOn(ItemsService, 'get');
+    spyOn(ItemsService, 'add');
+    ItemsService.addToCart(cartList, names, item);
+
+    expect(cartList[0].num).toBe(2);
+  });
+
   it('should use localStorageService set function', function() {
     spyOn(localStorageService, 'set');
     ItemsService.add();
