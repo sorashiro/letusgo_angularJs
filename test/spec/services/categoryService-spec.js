@@ -69,11 +69,21 @@ describe('Controller: CategoryService', function () {
       {'category':'fruit','name':'leechee','unit':'斤','price':'15.00'},
       {'category':'food','name':'sprite','unit':'瓶','price':'3.00'},
       {'category':'food','name':'coca-cola','unit':'瓶','price':'3.00'},
-      {'category':'livingGoods','name':'battery','unit':'个','price':'2.00'}]
+      {'category':'livingGoods','name':'battery','unit':'个','price':'2.00'}];
 
     expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
     expect(ItemsService.add).toHaveBeenCalled();
     expect(itemsList).toEqual(item);
   });
+
+  it('should modify category', function() {
+    var category = 'book';
+    spyOn(ItemsService, 'add');
+
+    CategoryService.modify(category);
+
+    expect(ItemsService.add).toHaveBeenCalled();
+  });
+
 
 });
