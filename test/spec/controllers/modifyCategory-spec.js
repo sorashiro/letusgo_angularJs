@@ -33,6 +33,16 @@ describe('Controller: ModifyCategoryCtrl', function () {
     createController();
 
     expect(CategoryService.getName).toHaveBeenCalled();
-  })
+  });
+
+  it('modify category name', function() {
+    spyOn(CategoryService, 'modifyCategory');
+    spyOn(CategoryService, 'getName');
+    createController();
+
+    $scope.category = CategoryService.getName();
+    $scope.modifyCategory();
+    expect(CategoryService.modifyCategory).toHaveBeenCalled();
+  });
 
 });
