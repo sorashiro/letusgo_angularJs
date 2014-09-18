@@ -77,8 +77,14 @@ describe('Controller: ItemsService', function () {
   it('should use localStorageService get function', function(){
     spyOn(localStorageService, 'get');
     ItemsService.get();
+
     expect(localStorageService.get).toHaveBeenCalled();
-    
   });
 
+  it('should use localStorageService remove function', function() {
+    spyOn(localStorageService, 'remove');
+    ItemsService.remove();
+
+    expect(localStorageService.remove).toHaveBeenCalled();
+  });
 });
