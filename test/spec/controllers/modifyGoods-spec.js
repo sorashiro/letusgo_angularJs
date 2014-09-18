@@ -39,7 +39,11 @@ describe('Controller: ModifyGoodsCtrl', function () {
     expect(GoodsService.getItem).toHaveBeenCalled();
   });
 
-
+  it('should load categories name', function() {
+    spyOn(CategoryService, 'loadCategory');
+    createController();
+    expect(CategoryService.loadCategory).toHaveBeenCalled();
+  });
 
 
 });
