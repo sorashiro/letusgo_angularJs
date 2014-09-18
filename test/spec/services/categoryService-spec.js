@@ -19,7 +19,8 @@ describe('Controller: CategoryService', function () {
       {'category':'fruit','name':'leechee','unit':'斤','price':'15.00'},
       {'category':'food','name':'sprite','unit':'瓶','price':'3.00'},
       {'category':'food','name':'coca-cola','unit':'瓶','price':'3.00'},
-      {'category':'livingGoods','name':'battery','unit':'个','price':'2.00'}];
+      {'category':'livingGoods','name':'battery','unit':'个','price':'2.00'},
+      {'category':'book'}];
     categories = ['fruit','food','livingGoods'];
   });
 
@@ -43,6 +44,36 @@ describe('Controller: CategoryService', function () {
     expect(ItemsService.add).toHaveBeenCalled();
     expect(categories).toEqual(['fruit','food','livingGoods','book']);
 
-  })
+  });
+
+  it('can not remove old category', function() {
+    var category = 'food';
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    spyOn(ItemsService, 'add');
+
+    CategoryService.removes(category);
+
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(ItemsService.add).toHaveBeenCalled();
+
+  });
+
+  it('can remove old category', function() {
+    var category = 'book';
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    spyOn(ItemsService, 'add');
+
+    CategoryService.removes(category);
+    var item = [
+      {'category':'fruit','name':'apple','unit':'斤','price':'5.50'},
+      {'category':'fruit','name':'leechee','unit':'斤','price':'15.00'},
+      {'category':'food','name':'sprite','unit':'瓶','price':'3.00'},
+      {'category':'food','name':'coca-cola','unit':'瓶','price':'3.00'},
+      {'category':'livingGoods','name':'battery','unit':'个','price':'2.00'}]
+
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(itemsList).toEqual(item);
+  });
 
 });
