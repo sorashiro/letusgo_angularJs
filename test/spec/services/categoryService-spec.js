@@ -85,5 +85,13 @@ describe('Controller: CategoryService', function () {
     expect(ItemsService.add).toHaveBeenCalled();
   });
 
+  it('should get category name', function() {
+    spyOn(ItemsService, 'get').andReturn('book');
+    var category = CategoryService.getName();
+
+    expect(category).toEqual('book');
+    expect(ItemsService.get).toHaveBeenCalled();
+  });
+
 
 });
