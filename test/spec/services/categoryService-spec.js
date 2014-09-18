@@ -76,7 +76,7 @@ describe('Controller: CategoryService', function () {
     expect(itemsList).toEqual(item);
   });
 
-  it('should modify category', function() {
+  it('should get modify category', function() {
     var category = 'book';
     spyOn(ItemsService, 'add');
 
@@ -91,6 +91,18 @@ describe('Controller: CategoryService', function () {
 
     expect(category).toEqual('book');
     expect(ItemsService.get).toHaveBeenCalled();
+  });
+
+  it('should modify category', function() {
+    spyOn(ItemsService, 'add');
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    var category = 'book';
+    var newName = 'toy';
+    CategoryService.modifyCategory(category, newName);
+
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(itemsList[5].category).toEqual(newName);
   });
 
 
