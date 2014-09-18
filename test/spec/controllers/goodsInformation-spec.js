@@ -24,6 +24,7 @@ describe('Controller: GoodsCtrl', function () {
         });
       };
     });
+
   });
 
   it('emit from parent controller', function() {
