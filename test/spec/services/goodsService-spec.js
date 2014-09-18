@@ -48,4 +48,22 @@ describe('Controller: GoodsService', function () {
     ]);
   });
 
+  it('should remove goods', function() {
+    var goodsInformation = {'category':'fruit','name':'apple','unit':'斤','price':'5.50'};
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    spyOn(ItemsService, 'add');
+
+    GoodsService.remove(goodsInformation);
+
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(itemsList).toEqual([
+      {'category': 'fruit', 'name': 'leechee', 'unit': '斤', 'price': '15.00'},
+      {'category': 'food', 'name': 'sprite', 'unit': '瓶', 'price': '3.00'},
+      {'category': 'food', 'name': 'coca-cola', 'unit': '瓶', 'price': '3.00'},
+      {'category': 'livingGoods', 'name': 'battery', 'unit': '个', 'price': '2.00'},
+      {'category': 'book'}
+    ]);
+  });
+
 });
