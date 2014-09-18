@@ -63,10 +63,10 @@ angular.module('letusgoAngularJsApp').service('ItemsService', function (localSto
     var num = 1;
 
     cart = {'item': item, 'num': num};
-    names = this.get('names') || [];
+    names = this.get('names') || names;
 
     var has = names.indexOf(name);
-    cartList = this.get('cartList') || [];
+    cartList = this.get('cartList') || cartList;
     if (has === -1) {
       cartList.push(cart);
       names.push(name);
