@@ -10,11 +10,12 @@ angular.module('letusgoAngularJsApp').service('CartItemService', function (local
   this.category = function (categorys, cartLists) {
     var cartItems = [];
     var category = {};
-    cartLists = localStorageService.get('cartList') || [];
+    cartLists = localStorageService.get('cartList') || cartLists;
 
     for (var i = 0; i < cartLists.length; i++) {
       category = cartLists[i].item.category;
       if (categorys.indexOf(category) === -1) {
+        console.log('1');
         categorys.push(category);
       }
     }

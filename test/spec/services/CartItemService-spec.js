@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: CartService', function () {
-  var $scope, localStorageService, CartService, items, cartList;
+  var $scope, localStorageService, CartService, items, cartList, cartItem;
 
   beforeEach(function () {
     module('letusgoAngularJsApp');
@@ -21,6 +21,7 @@ describe('Controller: CartService', function () {
     var item6 = {'category': 'book'};
     items = [item1, item2, item3, item4, item5, item6];
     cartList = [{'item':{'category':'fruit','name':'apple','unit':'斤','price':'5.50'},'num':1}];
+    cartItem = [{'category':'fruit','item':[{'item':{'category':'fruit','name':'apple','unit':'斤','price':'5.50'},'num':1}]}];
   });
 
   it('should return cartList', function() {
@@ -30,4 +31,14 @@ describe('Controller: CartService', function () {
     expect(cartLists).toBe(cartList);
     expect(localStorageService.get).toHaveBeenCalledWith('cartList');
   });
+
+  it('should return cartItems', function() {
+    spyOn(localStorageService, 'get');
+    var categories = [];
+    var cartItems = CartService.category(categories, cartList);
+
+    expect(cartItems).toEqual(cartItem);
+    expect(localStorageService.get).toHaveBeenCalled();
+  });
+
 });
