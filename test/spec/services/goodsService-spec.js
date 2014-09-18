@@ -30,7 +30,7 @@ describe('Controller: GoodsService', function () {
       {'category': 'livingGoods', 'name': 'battery', 'unit': '个', 'price': '2.00'}
     ];
     goodsInformation = {'category':'fruit','name':'apple','unit':'斤','price':'5.50'};
-    modifyItem = {"category":"fruit","name":"apple","unit":"斤","price":"5.50"};
+    modifyItem = {'category':'fruit','name':'apple','unit':'斤','price':'5.50'};
   });
 
   it('should add goods information', function() {
@@ -89,5 +89,30 @@ describe('Controller: GoodsService', function () {
 
     expect(ItemsService.get).toHaveBeenCalledWith('modifyItem');
     expect(item).toEqual(modifyItem);
+  });
+
+  it('should modify goods information', function() {
+    spyOn(ItemsService, 'add');
+    spyOn(ItemsService, 'get').andReturn(itemsList);
+    spyOn(GoodsService, 'getItem').andReturn(modifyItem);
+    var category = 'food';
+    var name = 'cake';
+    var unit = '个';
+    var price = '10.00';
+
+    GoodsService.modify(category, name, unit, price);
+
+    expect(ItemsService.get).toHaveBeenCalledWith('itemsList');
+    expect(GoodsService.getItem).toHaveBeenCalled();
+    expect(ItemsService.add).toHaveBeenCalled();
+    expect(itemsList).toEqual([
+      {'category': 'food', 'name': 'cake', 'unit': '个', 'price': '10.00'},
+      {'category': 'fruit', 'name': 'leechee', 'unit': '斤', 'price': '15.00'},
+      {'category': 'food', 'name': 'sprite', 'unit': '瓶', 'price': '3.00'},
+      {'category': 'food', 'name': 'coca-cola', 'unit': '瓶', 'price': '3.00'},
+      {'category': 'livingGoods', 'name': 'battery', 'unit': '个', 'price': '2.00'},
+      {'category': 'book'}
+    ]);
+
   });
 });
