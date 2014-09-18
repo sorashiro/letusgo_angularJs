@@ -43,5 +43,13 @@ describe('Controller: CartService', function () {
     expect(localStorageService.set).toHaveBeenCalled();
   });
 
- 
+  it('should increase number', function() {
+    spyOn(localStorageService, 'get').andReturn(cartList);
+    spyOn(localStorageService, 'set');
+    CartService.plusNumber(cartItem);
+
+    expect(localStorageService.get).toHaveBeenCalled();
+    expect(localStorageService.set).toHaveBeenCalled();
+  });
+
 });
