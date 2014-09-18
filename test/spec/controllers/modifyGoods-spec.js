@@ -52,6 +52,14 @@ describe('Controller: ModifyGoodsCtrl', function () {
     expect($scope.categoryName).toBe('fruit');
   });
 
+  it('should change category name', function() {
+    createController();
+    var category = 'food';
+    $scope.changeName(category);
+
+    expect($scope.categoryName).toBe('food');
+  });
+
 
 
 });
