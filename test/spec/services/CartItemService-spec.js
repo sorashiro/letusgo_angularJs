@@ -52,4 +52,11 @@ describe('Controller: CartService', function () {
     expect(localStorageService.set).toHaveBeenCalled();
   });
 
+  it('should get total', function() {
+    spyOn(localStorageService, 'get').andReturn(cartList);
+    var total = CartService.getTotal();
+
+    expect(localStorageService.get).toHaveBeenCalled();
+    expect(total).toEqual(5.50);
+  });
 });
