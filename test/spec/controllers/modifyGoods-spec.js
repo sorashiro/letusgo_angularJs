@@ -60,6 +60,12 @@ describe('Controller: ModifyGoodsCtrl', function () {
     expect($scope.categoryName).toBe('food');
   });
 
+  it('should modify goods information', function() {
+    spyOn(GoodsService,'modify');
+    createController();
+    $scope.modify();
 
+    expect(GoodsService.modify).toHaveBeenCalled();
+  });
 
 });
