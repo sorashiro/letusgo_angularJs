@@ -4,7 +4,7 @@ angular.module('letusgoAngularJsApp').service('CategoryService', function (local
 
   this.loadCategory = function () {
     var categorys = [];
-    var items = ItemsService.get('itemsList');
+    var items = ItemsService.get('itemsList') || [];
 
     for (var i = 0; i < items.length; i++) {
       if (categorys.indexOf(items[i].category) === -1) {
